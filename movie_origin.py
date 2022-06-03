@@ -12,7 +12,7 @@ import sqlite3
 con, cur = None, None
 
 def insertData() :
-    con = sqlite3.connect("D:/sqlite/Test")
+    con = sqlite3.connect("D:/sqlite/Test")##개인설정으로 바꿔야함.
     cur = con.cursor()
     data1 = DB_dic['name']
     data2 = str(DB_dic['score'])
@@ -24,7 +24,7 @@ def insertData() :
     con.close()
 
 def printData() :
-    con = sqlite3.connect("D:/sqlite/Test")
+    con = sqlite3.connect("D:/sqlite/Test")##개인설정으로 바꿔야함.
     cur = con.cursor()
     sql = "SELECT * FROM t4 ORDER BY score DESC;"
     cur.execute(sql)
@@ -94,7 +94,7 @@ except:
     print("오류 발생")
 
 
-with open(f'naver_movie/{movie_num}.txt','w',encoding='utf-8') as f:    #파일 저장
+with open(f'{movie_num}.txt','w',encoding='utf-8') as f:    #파일 저장
     for single_review in review_list:
         f.write(single_review+'\n')
 
@@ -119,9 +119,9 @@ def get_tags(text, ntags=500):
 
 def frequency(title):
     global text_file_name 
-    text_file_name = "naver_movie/%s.txt"%title
+    text_file_name = "%s.txt"%title
     noun_count = 500
-    output_file_name = "naver_movie/%s_count.txt"%title
+    output_file_name = "%s_count.txt"%title
     try: 
         open_text_file = open(text_file_name, 'r', -1, "utf-8")
         text = open_text_file.read()
@@ -191,12 +191,12 @@ def print_senti(title):
             neg += int(list[i][1])
 
 
-print_senti("naver_movie/%s" % str(movie_num))
+print_senti("%s" % str(movie_num))
 
 
 ############################################################ word cloud 생성
 def cloud(title):
-    list = open_review("naver_movie/%s"%title)
+    list = open_review("%s"%title)
 
     try:
         positive = open_pos()
@@ -231,7 +231,7 @@ def cloud(title):
     list_len = len(neg_word_l)
     for i in range(0, list_len):
         taglist.append({'color': (255, 0, 0), 'size': int(float(int(neg_word_n[i])*4 * size) + 20), 'tag': '%s' % neg_word_l[i]})
-    pytagcloud.create_tag_image(taglist,'wordcloud/movie/%s.jpg' % title, size=(1000,500), fontname='malgunbd', rectangular=False)
+    pytagcloud.create_tag_image(taglist,'%s.jpg' % title, size=(1000,500), fontname='malgunbd', rectangular=False)
 
     
 cloud(str(movie_num))
