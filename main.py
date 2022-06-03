@@ -77,7 +77,7 @@ def check():
     if(RadioVariety_1.get() == 1):
         #DB_dic['type'] = "책"
         #DB_dic['name'] = input_text.get()
-        type = "영화"
+        type = "책"
         name = input_text.get()
         insertData(name, type) 
         crawling.book_function(input_text.get())
@@ -89,7 +89,7 @@ def check():
     if(RadioVariety_1.get() == 2):
         #DB_dic['type'] = "어플"
         #DB_dic['name'] = input_text.get()
-        type = "영화"
+        type = "어플"
         name = input_text.get()
         insertData(name, type) 
         crawling.app_function(input_text.get())
