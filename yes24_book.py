@@ -6,7 +6,6 @@ from konlpy.tag import Twitter
 from collections import Counter
 
 import pytagcloud
-import sentiment
 
 ############################################################ 책 검색 부분
 book_name = input("어떤 책을 검색하시겠습니까? ")
@@ -160,11 +159,11 @@ print_senti(str(book_num)+"_yes24_book")
 
 ############################################################ word cloud 생성
 def cloud(title):
-    list = sentiment.open_review("%s"%title)
+    list = open_review("%s"%title)
 
     try:
-        positive = sentiment.open_pos()
-        negative = sentiment.open_neg()
+        positive = open_pos()
+        negative = open_neg()
     except:
         print("wrong")
     taglist = []

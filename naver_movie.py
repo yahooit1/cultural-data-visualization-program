@@ -6,7 +6,7 @@ from konlpy.tag import Twitter
 from collections import Counter
 
 import pytagcloud
-import sentiment
+
 
 ############################################################영화 검색 부분
 movie = input("어떤 영화를 검색하시겠습니까? ")
@@ -146,11 +146,11 @@ print_senti(str(movie_num)+"_naver_movie")
 
 ############################################################ word cloud 생성
 def cloud(title):
-    list = sentiment.open_review("%s"%title)
+    list = open_review("%s"%title)
 
     try:
-        positive = sentiment.open_pos()
-        negative = sentiment.open_neg()
+        positive = open_pos()
+        negative = open_neg()
     except:
         print("wrong")
     taglist = []
