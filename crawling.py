@@ -381,11 +381,11 @@ def cloud(title):
     size=183/size
     list_len = len(pos_word_l)
     for i in range(0, list_len):
-        taglist.append({'color': (70, 65, 217), 'size': int(float(int(pos_word_n[i])*4*size) + 20), 'tag': '%s' % pos_word_l[i]})
+        taglist.append({'color': (70, 65, 217), 'size': int(float(int(pos_word_n[i])*1.8*size) + 20), 'tag': '%s' % pos_word_l[i]})
     list_len = len(neg_word_l)
     for i in range(0, list_len):
-        taglist.append({'color': (255, 0, 0), 'size': int(float(int(neg_word_n[i])*4 * size) + 20), 'tag': '%s' % neg_word_l[i]})
-    pytagcloud.create_tag_image(taglist,'wordcloud.jpg', size=(1000,500), fontname='malgunbd', rectangular=False)
+        taglist.append({'color': (255, 0, 0), 'size': int(float(int(neg_word_n[i])*1.8* size) + 20), 'tag': '%s' % neg_word_l[i]})
+    pytagcloud.create_tag_image(taglist,f'{title}.jpg', size=(500,300), fontname='malgunbd', rectangular=False)
 
 
 #########책 선택할 경우
